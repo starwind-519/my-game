@@ -88,6 +88,7 @@ const dialogOptions = $('#dialogOptions');
 // --- 盲盒相关元素 ---
 const blindBoxModal = $('#blindBoxModal');
 const blindBoxTitle = $('#blindBoxTitle');
+const blindBoxMessage = $('#blindBoxMessage');
 const blindBoxImageArea = $('#blindBoxImageArea');
 const blindBoxOptions = $('#blindBoxOptions');
 const blindBoxResult = $('#blindBoxResult');
@@ -635,6 +636,7 @@ function handleRandomEvent(actionId, onComplete) {
 
   // 初始化盲盒界面
   blindBoxTitle && (blindBoxTitle.textContent = '随机盲盒');
+  blindBoxMessage && (blindBoxMessage.textContent ='请选择一个盲盒');
   if (blindBoxImageArea) blindBoxImageArea.innerHTML = '';
   blindBoxResult.style.display = 'none';
   blindBoxResultText.innerHTML = '';

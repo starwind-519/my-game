@@ -918,8 +918,8 @@ function autosave() {
 function endDay() {
   gameState.stamina = 100;
   gameState.infection = (gameState.infection || 0) + 12;
-  gameState.sakikoMood = (gameState.sakikoMood || 0) - 10;
-  gameState.mutsumiMood = (gameState.mutsumiMood || 0) - 10;
+  gameState.sakikoMood = (gameState.sakikoMood || 0) - 8;
+  gameState.mutsumiMood = (gameState.mutsumiMood || 0) - 8;
   gameState.houseSecurity = gameState.houseSecurity || 0;
 
   //若当天未使用物资，消耗自然物资并造成心情下降

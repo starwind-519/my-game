@@ -438,7 +438,10 @@ function generateActions() {
 
     const button = document.createElement('button');
     button.className = 'action-btn';
-    button.innerHTML = `${label}<br><span class="desc-text">${desc}</span>`;
+    button.innerHTML = `
+      <div class="action-label">${label}</div>
+      <div class="action-desc">${desc}</div>
+    `;
 
     // 若该行动未定义，禁用
     if (!actionDef) {

@@ -10,8 +10,8 @@
   --color-white: #f0f0f0;
 
   /* 字体 */
-  --font-title: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
-  --font-body: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
+  --font-title: 'Source Han Sans','Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-body: 'Source Han Sans','Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
 
   /* 字号 */
   --fz-h1: 2.8rem;
@@ -19,7 +19,9 @@
   --fz-body: 1.125rem;
   --fz-button: 1rem;
   --fz-label: 0.95rem;
-  --fz-small: 0.875rem;
+  --fz-large: 24px;
+  --fz-medium: 16px;
+  --fz-small: 14px;
 
   /* 字重 */
   --fw-light: 400;
@@ -51,8 +53,8 @@
   /* 边框与阴影统一 */
   --border-color: #202020;
   --border-width: 1px;
-  --border-radius: 12px;
-  --btn-radius: 8px;
+  --border-radius: 2px;
+  --btn-radius: 2px;
   --shadow: 0 4px 15px #4c4c4c;
 }
 
@@ -100,6 +102,21 @@ body {
 .sakiko-text { color: #7799CC;}
 .mutsumi-text { color: #779977;}
 
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url('./Fonts/SourceHanSansCN-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; /* 优化加载显示 */
+}
+
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url('./Fonts/SourceHanSansCN-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化加载显示 */
+}
 /* =========================================================
    主菜单（Main Menu）
    ========================================================= */
@@ -115,8 +132,7 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   text-align: center;
-  z-index: var(--z-base);
-  border-radius: 2px; 
+  z-index: var(--z-base); 
 }
 
 .main-visual-container {
@@ -166,6 +182,7 @@ body {
   -webkit-text-stroke: var(--color-bg);
 }
 
+
 .menu-content p {
   font-family: 'Source Han Sans';
   font-size: 1.25rem;
@@ -186,6 +203,7 @@ body {
     1px -1px 0 var(--color-bg),
    -1px 1px 0 var(--color-bg);
 }
+
 
 .menu-buttons {
   display: flex;
@@ -226,6 +244,9 @@ body {
   display: block;
   z-index: var(--z-game);
   background: linear-gradient(180deg, #FFFFFF 0%, #4C4C4C 99%);
+  padding-top: 18px;
+  padding-left: 41px;
+  padding-right: 41px;
 }
 
 /* 标题区域 */
@@ -237,118 +258,150 @@ header, .header {
 }
 
 /* 日期/时间显示（居中） */
-.dayTime-display {
-  margin: var(--space-sm);
-  font-size: 1.6rem;
-  font-weight: var(--fw-semibold);
+.dayTime-display {  
+  /* 布局 */
+  margin-bottom: 16px;  /* 添加与main container的间距 */
+  /* 标题字体 */
+  font-family: 'Source Han Sans';
+  font-size: 24px;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: -1px;
+
+  /* 文字水平居中 */
   text-align: center;
-  letter-spacing: 0.6px;
-  line-height: 1.4;
-  background-color: var(--color-white);
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
-  padding-bottom: var(--space-sm);
+
+  /* 文字垂直居中 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
 }
 
 /* 主体两栏布局（左：状态；右：剧情） */
 .main-content {
+  /* 布局 */
   display: flex;
-  gap: var(--space-sm);
-  padding: 10px;
-  height: calc(90% - 5px); /* header & margins */
   align-items: stretch;
+  
+  /* 尺寸与间距 */
+  height: 504px; /* header & margins */
+  /* margin-top: 16px; */
+  gap: 16px;
+  
+  /* 外观 */
   overflow: hidden;
-  margin: auto;
 }
 
 /* =========================================================
    左右面板基础布局
    ========================================================= */
-.left-panel,
-.right-panel {
-  display: flex;
-  flex-direction: column;
-  height: 100%; 
-  box-sizing: border-box;
-}
-
-/* 左侧：占整体宽度 33% */
+/* 左侧：固定尺寸 */
 .left-panel {
-  flex: 0 0 33%;
+  /* 布局 */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 1px; 
-  gap: 2px; 
+  
+  /* 尺寸 */
+  width: 170px;
+  flex: 0 0 170px;
+  
+  /* 间距 */
+  padding: 1px;
+  gap: 2px;
+  
+  /* 外观 */
   background: none;
   border: none;
   box-shadow: none;
 }
 
-/* 右侧：占余下空间 */
+/* 右侧：自适应剩余空间 */
 .right-panel {
-  flex: 0 0 66%;
+  /* 布局 */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 1px; 
-  gap: 2px; 
+  box-sizing: border-box;
+  
+  /* 尺寸 */
+  flex: 1;
+
+  /* 外观 */
   background: none;
   border: none;
   box-shadow: none;
-  box-sizing: border-box;
 }
 
 /* =========================================================
    左上：状态面 / 数值条（占左侧三分之二）
    ========================================================= */
 .stats-panel {
-  flex: 0 0 70%;                   /*高度比例 */
+  /* 布局属性 */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 5px;
-  padding: 0;
+  margin-bottom: 16px;
+
+  /* 尺寸属性 */
+  width: 100%;
+  height: 344px;
+  flex: 0 0 344px;                   /* 固定高度 */
+
+  /* 间距属性 */
+  gap: 18px;
+  padding-top: 16px;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  /* 外观属性 */
   background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
+
+  /* 其他属性 */
   overflow-y: auto;
-  width: 100%;
   box-sizing: border-box;
-  margin: auto;
 }
 
-/* 数值条样式 */
+/* 数值条容器 */
 .stat {
+  /* 布局属性 */
   display: flex;
   flex-direction: column;
+
+  /* 间距属性 */
   gap: 5px;
 }
-.stat-label {
-  font-size: var(--fz-small);
-  font-weight: var(--fw-semibold);
-  text-align: center;
-}
-.stat-value {
-  height: 12px;
-  font-size: var(--fz-small);
-  font-weight: var(--fw-medium);
+
+/* 数值条标题行（标签 + 数值）*/
+.stat-header {
+  /* 布局属性 */
   display: flex;
-  justify-content: center;
   align-items: center;
+
+  /* 间距属性 */
+  gap: 5px;
+}
+
+/* 数值条文字样式（标签、数值、标签内的span）*/
+.stat-label,
+.stat-value,
+.stat-label span {
+  /* 文字属性 */
+  font-size: var(--fz-small);
+  text-align: left;
 }
 
 /* 进度条 */
 .bar-container {
   width: 100%;
-  height: 10px;
+  height: 12px;
   background: var(--color-bg);
   border: 1.5px solid var(--border-color);
-  border-radius: 10px;
   overflow: hidden;
-  align-items: center;
 }
 .bar {
   height: 100%;
@@ -373,7 +426,7 @@ header, .header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 9px;
   background: none;
   border: 1px;
   box-shadow: none;
@@ -382,17 +435,29 @@ header, .header {
   transform: translateY(-6px); 
 }
 .save-load-buttons button {
-  height: 40px;
+  /* 布局属性 */
+  text-align: left;
+
+  /* 尺寸属性 */
   width: 100%;
-  background: var(--color-white);
-  color: var(--color-text);
+  height: 42px;
+
+  /* 间距属性 */
+  padding-left: 18px; /* 文字距离左边18px */
+
+  /* 文字属性 */
   font-size: var(--fz-small);
-  font-weight: var(--fw-semibold);
-  border: none;
+  font-weight: bold;
+  color: var(--color-text);
+
+  /* 外观属性 */
+  background: #E1E1E1;
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
+
+  /* 交互属性 */
   cursor: pointer;
   transition: background var(--ease-normal), transform var(--ease-normal);
-  text-align: center;
 }
 .save-load-buttons button:hover {
   background: var(--color-hover);
@@ -403,28 +468,34 @@ header, .header {
    右上：故事区（占右侧三分之二）
    ========================================================= */
 .story-container {
-  flex: 0 0 70%;                  /* ✅ 占右栏上三分之二 */
-  padding: var(--space-lg);
+  height: 344px;
+  flex: 0 0 344px;                  /* ✅ 占右栏上三分之二 */
+  padding-top: 18px;
+  padding-left: 18px;
   background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
   overflow-y: auto;
+  margin-bottom: 16px;
 
   line-height: 1.75;
-  font-size: var(--fz-body);
+  font-size: var(--fz-medium);
   font-weight: var(--fw-regular);
   color: var(--color-text);
   text-align: left;
   box-sizing: border-box;
 }
 
+.story-container span {
+  font-size: var(--fz-medium);
+}
+
 /* 对话中角色回应样式 */
-.response-text {
+.story-container .response-text {
   color: #115342;
-  font-style: italic;
-  margin-top: 8px;
-  font-size: var(--fz-body);
-  font-weight: var(--fw-medium);
+  margin-top: 20px;
+  font-size: var(--fz-medium);
+  font-weight: bold;
   text-align: left;
 }
 
@@ -432,12 +503,10 @@ header, .header {
    右下：动作选项区（占右侧三分之一）
    ========================================================= */
 .actions-container {
-  flex: 0 0 30%;               
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  margin-top: var(--space-xs);
-  padding: 1px;
+  gap: 8px 12px;
   background: none;
   border: none;
   box-shadow: none;
@@ -447,16 +516,16 @@ header, .header {
 }
 
 .action-btn {
-  height: 100%;
-  height: 75px;
-  padding: 0px 10px;
+  height: 68px;
   background: var(--color-button-bg);
   color: var(--color-button-text);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--btn-radius);
   font-size: var(--fz-small);
   font-weight: var(--fw-medium);
   text-align: left;
+  line-height: 1.5;
+  padding-left: 18px; /* 文字距离左边18px */
   cursor: pointer;
   transition: background var(--ease-normal), transform var(--ease-normal);
 }
@@ -477,7 +546,17 @@ header, .header {
   transform: none;
 }
 
+.action-btn .action-label {
+  font-size: var(--fz-small);
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+}
 
+.action-btn .action-desc {
+  font-size: var(--fz-small);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+}
 
 
 /* =========================================================
@@ -719,8 +798,7 @@ header, .header {
    ========================================================= */
 .action-image { position:fixed; top:50%; left:50%; transform: translate(-50%,-50%); opacity:0; transition: opacity 0.25s ease, transform 0.25s ease; z-index:var(--z-blindbox); }
 .action-image.visible { opacity:1; }
-.action-image img { max-width: 800px; max-height:500px; width:auto; height:auto; transition: transform 0.25s ease; }
-.action-image.shake img { animation: gentleShake 0.8s ease-in-out 1; }
+.action-image img { max-width: 400px; max-height:250px; width:auto; height:auto; transition: transform 0.25s ease; }
 
 /* gentleShake */
 @keyframes gentleShake {
@@ -744,13 +822,14 @@ header, .header {
   width: 90%;
   color: #ddd;
   font-family: "Noto Serif JP", "Times New Roman", serif;
+  text-align: center
 }
 
 /* === Title === */
 #blindBoxTitle {
   font-size: 1.5rem;
   margin-bottom: 16px;
-  color: var(--color-text);
+  color: black;
   letter-spacing: 2px;
   text-shadow: 0 0 2px #202020;
 }
@@ -827,6 +906,8 @@ header, .header {
   color: white;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: block;
+  margin: 0 auto
 }
 
 #closeBlindBoxBtn:hover,

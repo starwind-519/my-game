@@ -648,7 +648,7 @@ header, .header {
   transform: translate(-50%,-50%);
   height: 100%;
   width :100%;
-  max-width: 570px;
+  max-width: 712px;
   min-height: 344px;
   max-height: 430px;
   z-index: var(--z-modal);
@@ -660,7 +660,7 @@ header, .header {
   box-shadow: var(--shadow);
   overflow:hidden;
   font-family: 'Source Han SansCN';
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 .modal-content {
   font-size: var(--fz-medium);
@@ -708,6 +708,7 @@ header, .header {
   padding: 10px 70px;
   font-size: var(--fz-medium);
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 10PX;
 }
 
 .modal-btn:hover {

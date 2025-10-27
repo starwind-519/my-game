@@ -138,7 +138,7 @@ body {
 
 .menu-content {
   position: absolute;
-  top: 42%;
+  top: 45%;
   right: 5%;
   transform: translateY(-50%);
   display: flex;
@@ -181,21 +181,23 @@ body {
 
 .menu-btn {
   padding: 15px 50px;
-  background: var(--color-button-bg);
-  color: var(--color-button-text);
-  border: none;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-button-bg);
   border-radius: var(--btn-radius);
   cursor: pointer;
-  font-size: var(--fz-button);
+  font-size: var(--fz-h2);
   font-weight: var(--fw-semibold);
   transition: background var(--ease-normal), transform var(--ease-normal);
   text-align: center;
 }
 .menu-btn:hover {
-  background: var(--color-accent);
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
   transform: translateY(-2px);
 }
 .menu-btn:active {
+  background: var(--color-accent);
   transform: translateY(0);
   opacity: 0.9;
 }

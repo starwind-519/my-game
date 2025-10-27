@@ -70,9 +70,9 @@ const actionEvents = {
 
 // 2. 和睦互动 - 统一归为 interaction 类
     withMutsumi: [
-    // ===== 10 次 =====
+    // ===== 8 次 =====
     {
-        condition: (count, state) => count === 10,
+        condition: (count, state) => count === 8,
         text:
         "你们已经习惯了并肩而坐的时光。<br>" +
         "<span class='mutsumi-text'>睦</span>轻轻靠在你肩上，呼吸与心跳都变得很近。<br>" +
@@ -88,9 +88,9 @@ const actionEvents = {
         once: true
     },
 
-    // ===== 18 次（有选项）=====
+    // ===== 15 次（有选项）=====
     {
-        condition: (count, state) => count === 18,
+        condition: (count, state) => count === 15,
         text:
         "夜里，烛光轻晃。窗外的雨声很远，只有呼吸在同一个节奏里。<br>" +
         "<span class='mutsumi-text'>睦</span>忽然开口，语气轻得像是在梦里。<br>" +
@@ -127,9 +127,9 @@ const actionEvents = {
         once: true
     },
 
-    // ===== 25 次（有选项）=====
+    // ===== 20 次（有选项）=====
     {
-    condition: (count, state) => count === 25,
+    condition: (count, state) => count === 20,
     text:
         "破旧的窗被风掠过，烛光在墙上摇晃。<br>" +
         "<span class='mutsumi-text'>睦</span>的目光停在你脸上，金色的眼里藏着一丝犹豫。<br>" +
@@ -167,9 +167,9 @@ const actionEvents = {
     once: true
     },
 
-    // ===== 30 次 =====
+    // ===== 25 次 =====
     {
-    condition: (count, state) => count === 30,
+    condition: (count, state) => count === 25,
     text:
         "不知道是第几个夜晚。你们坐在破旧的窗边，外头的世界一片漆黑。<br>" +
         "火光在两人之间闪烁，<span class='mutsumi-text'>睦</span>轻轻靠在你肩上。<br>" +
@@ -563,7 +563,7 @@ rest_night: [
 //6.探索 - 房子独立类
   explore_house: [
     {
-        condition: (count, state) => count === 5,
+        condition: (count, state) => count === 3,
         text: "屋里弥漫着潮湿与灰尘的气味。<br>" +
               "睦蹲在破旧的橱柜前，拨开一层碎木和尘埃，忽然停下。<br>" +
               "她从阴影里捧出一个几乎完好的小茶包，指尖微微一颤。<br>" +
@@ -596,7 +596,7 @@ rest_night: [
         once: true
     },
     {
-        condition: (count, state) => count === 10,
+        condition: (count, state) => count === 7,
         text: "破裂的桌脚支撑着一角残木。<br>" +
               "你弯下腰，从灰尘下捡出一张泛黄的照片。<br>" +
               "画面里的人都在笑——那种已经在世界上消失的笑。<br>" +
@@ -635,7 +635,7 @@ rest_night: [
 //6.探索 - 独自独立类
    explore_alone: [ 
     {
-        condition: (count, state) => count === 5,
+        condition: (count, state) => count === 3,
         text: "你刚背上包准备出门，睦忽然从后面拉住你的袖子。<br>" +
               "她抬头望着你，眼神有些不安。<br>" +
               "“……要小心，我会等你回来。”她的声音轻得几乎听不见。",
@@ -667,7 +667,7 @@ rest_night: [
         once: true
     },
     {
-        condition: (count, state) => count === 10,
+        condition: (count, state) => count === 7,
         text: "夜色沉沉。<br>" +
               "你推开门的那刻，睦立刻迎了上来。<br>" +
               "她的目光一瞬间落在你手臂的擦伤上，整个人僵住。<br>" +
@@ -705,7 +705,7 @@ rest_night: [
 //和睦外出
 explore_withMutsumi: [
     {
-        condition: (count, state) => count === 5,
+        condition: (count, state) => count === 3,
         text: "街道的风夹着灰尘吹过。<br>" +
               "睦始终紧紧跟在你身后，几乎没有发出声响。<br>" +
               "直到你回头，她才轻声说：“祥……注意安全。”<br>" +
@@ -741,7 +741,7 @@ explore_withMutsumi: [
     },
 
     {
-        condition: (count, state) => count === 10,
+        condition: (count, state) => count === 7,
         text: "夜色笼罩下的归途，你和睦并肩走着。<br>" +
               "忽然，她从怀里掏出一瓶皱巴巴的芒果汁。<br>" +
               "“这是给祥的。”<br>" +

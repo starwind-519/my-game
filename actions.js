@@ -215,9 +215,9 @@ const actions = {
         variants: {
             chat:      { cost: { stamina: 15 }, effect: { sakikoMood: 2, mutsumiMood: 2, love: 2 } },
             whisper:   { cost: { stamina: 15 }, effect: { sakikoMood: 2, mutsumiMood: 2, love: 2 } },
-            affection: { cost: { stamina: 20 }, effect: { sakikoMood: 4, mutsumiMood: 4, love: 2 } },
-            interact:  { cost: { stamina: 20 }, effect: { sakikoMood: 4, mutsumiMood: 4, love: 2 } },
-            check:     { cost: { stamina: 20 }, effect: { sakikoMood: 4, mutsumiMood: 4, love: 2 } }
+            affection: { cost: { stamina: 20 }, effect: { sakikoMood: 5, mutsumiMood: 4, love: 2 } },
+            interact:  { cost: { stamina: 20 }, effect: { sakikoMood: 5, mutsumiMood: 4, love: 2 } },
+            check:     { cost: { stamina: 20 }, effect: { sakikoMood: 5, mutsumiMood: 4, love: 2 } }
         }
     },
 
@@ -340,7 +340,7 @@ const actions = {
             "夜色将城市吞没。你背起包，回头看了一眼漆黑的街道——那里没有希望，但睦在等你。"
         ],
         cost: { stamina: 25 },
-        effect: { supplies: 6, sakikoMood: -5, mutsumiMood: -5 }
+        effect: { supplies: 7, sakikoMood: -5, mutsumiMood: -5 }
     },
 
     explore_withMutsumi: {
@@ -396,7 +396,7 @@ const randomEvents = {
         { description: "你找到一本旧乐谱，睦的心情好了不少。", effect: { mutsumiMood: 2 } },
         { description: "搜寻时，你不小心打翻了一桶水，损失了一些物资。", effect: { supplies: -2 } },
         { description: "地板塌陷，你受了点伤。", effect: { stamina: -5 } },
-        { description: "你翻到一些旧报纸，虽然没用，但让你想起了过去的世界。", effect: {} }
+        { description: "你翻到一些旧报纸，虽然没用，但让你想起了过去的世界。", effect: { sakikoMood:+1} }
     ],
 
     explore_alone: [

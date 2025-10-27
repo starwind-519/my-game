@@ -193,6 +193,7 @@ const storyManager = {
     if (!storyText) return;
     storyText.innerHTML += `<br>${text}`;
     storyText.scrollTop = storyText.scrollHeight;
+    storyText.scrollTop = 0; //先看第一排
   },
   appendResponse(text) {
     if (!storyText) return;
@@ -312,7 +313,7 @@ function updateIntroModalText() {
 function updateStatsIntroText() {
   const texts = window.statsIntroTexts || [];
   if (!statsIntroText) return;
-  statsIntroText.innerHTML = texts.join('<br>');
+  statsIntroText.innerHTML = texts.join('');
 }
 
 // --- 开始游戏按钮：启动整个开场流程 ---

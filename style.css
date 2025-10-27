@@ -182,7 +182,6 @@ body {
   -webkit-text-stroke: var(--color-bg);
 }
 
-
 .menu-content p {
   font-family: 'Source Han SansCN';
   font-size: 1.25rem;
@@ -203,7 +202,6 @@ body {
     1px -1px 0 var(--color-bg),
    -1px 1px 0 var(--color-bg);
 }
-
 
 .menu-buttons {
   display: flex;
@@ -469,7 +467,7 @@ header, .header {
    ========================================================= */
 .story-container {
   height: 344px;
-  flex: 0 0 344px;                  /* ✅ 占右栏上三分之二 */
+  flex: 0 0 344px;                  /* 占右栏上三分之二 */
   padding-top: 18px;
   padding-left: 18px;
   background: var(--color-white);
@@ -644,31 +642,35 @@ header, .header {
    6. 模态（modal）与对话（dialog-popup）
    ========================================================= */
 .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
   height: 100%;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  padding: var(--space-md);
-  padding-top: 10px;
+  width :100%;
+  max-width: 570px;
+  min-height: 344px;
+  max-height: 430px;
   z-index: var(--z-modal);
-  background: rgba(32,32,32,0.65);
+  display:flex;
+  flex-direction:column;
+  background: var(--color-white);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  font-family: 'Source Han SansCN';
+  padding-bottom: 15px;
 }
 .modal-content {
-  max-width: 600px;
-  width: 90%;
-  padding: var(--space-lg);
-  margin: 0 auto;
-  text-align: left;
-  background: var(--color-bg);
-  border-radius: var(--border-radius);
-  border: var(--border-width) solid var(--border-color);
-  box-shadow: var(--shadow);
-  align-items: center;
+  font-size: var(--fz-medium);
+  font-weight: var(--fw-light);
+  line-height: normal;
+  letter-spacing: 0%;
+  color: var(--color-text);
+  flex: 1 1 auto;
+  overflow-y: auto; 
+  padding:20px;
 }
 
 .modal-text {
@@ -680,9 +682,11 @@ header, .header {
 }
 
 .modal h2 {
-  margin-bottom: 15px;
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
   text-align: center;
-  color: var(--color-text);
+  padding-bottom: 10px;
 }
 
 .modal p {
@@ -692,21 +696,24 @@ header, .header {
 }
 
 .modal-btn {
-  display: block;
+  display: flex;
   margin: 15px auto 0;
-  padding: 12px 25px;
+  margin-top: auto;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--color-button-bg);
   color: var(--color-button-text);
-  font-size: 1.1rem;
   cursor: pointer;
   transition: all var(--ease-normal);
+  padding: 10px 70px;
+  font-size: var(--fz-medium);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 .modal-btn:hover {
-  background: var(--color-accent);
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px #4c4c4c;
+  background: var(--color-accent);
 }
 
 /* 教程点 */
@@ -736,50 +743,55 @@ header, .header {
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  width: 90%;
-  max-width: 430px;
-  max-height: 570px;
+  height: 100%;
+  width :100%;
+  max-width: 570px;
+  min-height: 344px;
+  max-height: 430px;
   z-index: var(--z-modal);
   display:flex;
   flex-direction:column;
-  padding:30px;
-  gap:20px;
-  background: var(--color-bg);
+  padding:25px;
+  gap: 10px;
+  background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
   border-radius: 4px;
   box-shadow: var(--shadow);
   overflow:hidden;
+  font-family: 'Source Han SansCN';
 }
 .dialog-popup h2 {
-  margin: 0 0 6px 0;
-  font-size: 1.4rem;
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
   text-align: center;
 }
 
 .dialog-content {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: var(--fz-medium);
+  font-weight: var(--fw-light);
+  line-height: normal;
+  letter-spacing: 0%;
   color: var(--color-text);
   flex: 1 1 auto;
-  overflow-y: auto;
-  padding-right: 6px;
+  overflow-y: auto;  
 }
 
 .dialog-options {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   align-items: stretch;
 }
 
 .dialog-btn {
-  padding: 12px 18px;
+  padding: 5px 10px;
   border: none;
   border-radius: 10px;
   background: var(--color-button-bg);
   color: var(--color-button-text);
-  font-size: 1rem;
+  font-size: var(--fz-medium);
   cursor: pointer;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -792,13 +804,28 @@ header, .header {
   background: var(--color-accent);
 }
 
-
 /* =========================================================
    8. 插图（action-image）与盲盒（blindBoxModal）
    ========================================================= */
-.action-image { position:fixed; top:50%; left:50%; transform: translate(-50%,-50%); opacity:0; transition: opacity 0.25s ease, transform 0.25s ease; z-index:var(--z-blindbox); }
+.action-image { 
+  position:fixed; 
+  top:50%; 
+  left:50%; 
+  transform: translate(-50%,-50%); 
+  opacity:0; 
+  transition: opacity 0.25s ease, 
+  transform 0.25s ease; 
+  z-index:var(--z-blindbox); 
+}
 .action-image.visible { opacity:1; }
-.action-image img { max-width: 400px; max-height:250px; width:auto; height:auto; transition: transform 0.25s ease; }
+
+.action-image img { 
+  max-width: 400px; 
+  max-height:250px; 
+  width:auto; 
+  height:auto; 
+  transition: transform 0.25s ease; 
+}
 
 /* gentleShake */
 @keyframes gentleShake {
@@ -815,37 +842,41 @@ header, .header {
 #blindBoxModal .modal-content {
   background: var(--color-bg);
   border: var(--border-width) solid rgba(200,150,255,0.2);
-  border-radius: var(--border-radius);
+  border-radius: 4px;
   box-shadow: var(--shadow);
   padding: 24px 28px;
-  max-width: 420px;
-  width: 90%;
-  color: #ddd;
-  font-family: "Noto Serif JP", "Times New Roman", serif;
+  max-height: 344px;
+  max-width: 570px;
+  width: 100%;
+  height: 100%;
+  color: var(--color-white);
+  font-family: "Source Han Sans";
   text-align: center
 }
 
 /* === Title === */
 #blindBoxTitle {
   font-size: 1.5rem;
+  font-weight: var(--fw-bold);
   margin-bottom: 16px;
-  color: black;
+  color: var(--color-text);
   letter-spacing: 2px;
-  text-shadow: 0 0 2px #202020;
+  text-shadow: 0 0 2px var(--color-white);
 }
 
 #blindBoxMessage {
-  font-size: 1.0rem;
+  font-size: 1rem;
+  font-weight: var(--fw-semibold);
   text-align: center;
   color: var(--color-text);
   letter-spacing: 2px;
-  text-shadow: 0 0 2px #202020;
+  text-shadow: 0 0 2px var(--color-white);
 }
 /* === Image / Hint Area === */
 #blindBoxImageArea {
   min-height: 50px;
   margin-bottom: 12px;
-  color: #aaa;
+  color: var(--color-hover);
   font-style: italic;
 }
 
@@ -863,12 +894,11 @@ header, .header {
 .blind-box {
   width: 60px;
   height: 60px;
-  background: linear-gradient(160deg, #444, #222);
+  background: linear-gradient(180deg, #5C5C5C 0%, #040404 100%);
   border: 2px solid #4c4c4c;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
-  box-shadow: 0 0 10px rgba(150,120,255,0.2);
   transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -891,7 +921,8 @@ header, .header {
 
 #blindBoxResultText {
   font-size: 1rem;
-  color: black;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
   margin-bottom: 10px;
   line-height: 1.4;
   text-shadow: 0 0 4px rgba(255,255,255,0.3);
@@ -900,10 +931,10 @@ header, .header {
 /* === Buttons === */
 #closeBlindBoxBtn,
 #openBlindBoxBtn {
-  background: black;
+  background: var(--color-button-bg);
   border-radius: 8px;
   padding: 6px 18px;
-  color: white;
+  color: var(--color-white);
   cursor: pointer;
   transition: all 0.2s ease;
   display: block;
@@ -938,7 +969,7 @@ header, .header {
   padding: var(--space-md);
   border-radius: 8px;
   border-left: 5px solid var(--color-accent);
-  background: var(--color-bg);
+  background: var(--color-white);
   color: var(--color-text);
   box-shadow: var(--shadow);
   z-index: var(--z-notification);

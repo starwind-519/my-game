@@ -226,7 +226,7 @@ const actions = {
         name: "尝试治疗睦",
         description: "花费30体力,降低感染",
         type: "treat",
-        image:"image/treat.jpg",
+        image:"image/treat.png",
         responses: {
             morning: [ 
                 "晨光透过破碎的窗照进来。你将手覆在睦的伤口上，水光在掌心流动。她轻轻颤抖，却一声不吭。",
@@ -279,7 +279,7 @@ const actions = {
         name: "午睡",
         description: "恢复30体力",
         type: "rest_noon",
-        image:"image/rest.jpg",
+        image:"image/rest.png",
         responses: [
             "你终于靠在墙边睡去，呼吸渐渐平稳。睦静静地看着你，不出声音，仿佛怕惊扰梦中的安宁。",
             "阳光透过破碎的窗帘洒在你脸上。睦伸手替你挡住光，低声说：“再睡一会儿吧，祥。”",
@@ -295,7 +295,7 @@ const actions = {
         name: "提前上床",
         description: "恢复5体力",
         type: "rest_night",
-        image:"image/rest.jpg",
+        image:"image/rest.png",
         responses: [
             "你筋疲力尽地躺下，床单带着灰尘的味道。睦在一旁收拾东西，轻声嘱咐：“祥，早点休息。”",
             "夜色深沉，你听见睦的呼吸在近处起伏。那节奏让你意外地安心，像在提醒你——你们都还活着。",
@@ -347,7 +347,7 @@ const actions = {
         name: "探索（与睦一起）",
         description: "和睦外出寻找物资,花费25体力",
         type: "explore_withMutsumi",
-        image:"image/explore.jpg",
+        image:"image/explore.png",
         responses: [
             "夜色笼罩废墟，你搀着睦，步伐放得很轻，只怕惊动风里的寂静，迎来丧尸的袭击。",
             "并肩前行让睦的气息稳定了些，她回头冲你露出一个安心的笑。",
@@ -368,7 +368,7 @@ const actions = {
         name: "加固房子",
         description: "花费25体力，消耗5物资",
         type: "fortify",
-        image:"image/fortify.jpg",
+        image:"image/fortify.png",
         cost: { stamina: 25, supplies: 5 },
         effect: {houseSecurity: 1, sakikoMood: -2, mutsumiMood: -2, love: 1 },
         houseSecurity: 1,

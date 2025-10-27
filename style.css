@@ -169,7 +169,7 @@ body {
 }
 
 .menu-content h1 {
-  font-family: 'Source Han Sans';
+  font-family: 'Source Han SansCN';
   font-size: var(--fz-h1);
   font-weight: var(--fw-bold);
   background:linear-gradient(180deg, #000000 28%, #ED0000 100%);
@@ -184,7 +184,7 @@ body {
 
 
 .menu-content p {
-  font-family: 'Source Han Sans';
+  font-family: 'Source Han SansCN';
   font-size: 1.25rem;
   font-weight: var(--fw-bold);
   background: var(--color-bg);

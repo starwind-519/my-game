@@ -803,7 +803,7 @@ header, .header {
 .dialog-content {
   margin-bottom: 15px;
   text-align: left;
-  line-height: 1.75;
+  line-height: 2.0;
   font-size: var(--fz-body);
   font-weight: var(--fw-regular);
   transition: opacity 1s ease;

@@ -823,7 +823,7 @@ function showSpecialEventModal(eventKey, text, options, onClose) {
   if (titleElement) titleElement.textContent = titleText;
 
   // 填充内容与选项
-  dialogContent.innerHTML = `<div class="modal-text">${text}</div>`;
+  dialogContent.innerHTML = `<div class="dialog-content">${text}</div>`;
   dialogOptions.innerHTML = '';
 
   const opts = Array.isArray(options) && options.length > 0 ? options : [{ text: '继续' }];
@@ -847,7 +847,7 @@ function showSpecialEventModal(eventKey, text, options, onClose) {
 
       const fb = typeof opt.feedback === 'function' ? opt.feedback(gameState) : opt.feedback;
       if (fb) {
-        dialogContent.innerHTML = `<div class="modal-text">${fb}</div>`;
+        dialogContent.innerHTML = `<div class="dialog-content">${fb}</div>`;
         dialogOptions.innerHTML = '';
 
         const cont = document.createElement('button');

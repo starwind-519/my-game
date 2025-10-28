@@ -687,7 +687,6 @@ header, .header {
   font-weight: var(--fw-bold);
   text-align: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .modal p {
@@ -801,7 +800,6 @@ header, .header {
   font-weight: var(--fw-bold);
   text-align: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .dialog-content {

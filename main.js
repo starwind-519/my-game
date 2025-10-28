@@ -1180,10 +1180,18 @@ function renderSaveSlots() {
       }
     }
 
-    // 创建存档行（文字说明）
-    const lineSpan = document.createElement('span');
+    // 创建存档行容器
+    const lineSpan = document.createElement('div');
     lineSpan.className = 'save-slot';
-    lineSpan.textContent = `存档槽 ${i} • ${meta} `;
+
+    // 创建左侧信息区域
+    const infoSpan = document.createElement('span');
+    infoSpan.className = 'save-slot-info';
+    infoSpan.textContent = `存档槽 ${i} • ${meta} `;
+
+    // 创建右侧按钮容器
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'slot-actions';
 
     //按钮
     const lbtn = document.createElement('button');
@@ -1217,10 +1225,14 @@ function renderSaveSlots() {
       showNotification(`已删除 存档槽 ${i}`);
     });
 
-    // 将按钮依次挂载到该槽位
-    lineSpan.appendChild(lbtn);
-    lineSpan.appendChild(sbtn);
-    lineSpan.appendChild(cbtn);
+    // 将按钮添加到按钮容器
+    actionsDiv.appendChild(lbtn);
+    actionsDiv.appendChild(sbtn);
+    actionsDiv.appendChild(cbtn);
+
+    // 将信息区域和按钮容器添加到行容器
+    lineSpan.appendChild(infoSpan);
+    lineSpan.appendChild(actionsDiv);
 
     // 把整行添加到 saveSlots 区域
     saveSlots.appendChild(lineSpan);

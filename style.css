@@ -134,6 +134,24 @@ body {
   z-index: var(--z-base); 
 }
 
+.modal-menu {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  height: 520px; /* 与 #saveMenu 一致 */
+  width :100%;
+  max-width: 712px;
+  min-height: 344px;
+  max-height: 530px;
+  z-index: var(--z-modal);
+  display:flex;
+  flex-direction:column;
+  background: transparent;
+  font-family: 'Source Han Sans';
+  overflow: hidden;
+}
+
 .main-visual-container {
   position: relative;
   width: 100%;
@@ -566,7 +584,7 @@ header, .header {
   max-width: 712px;
   max-height: 520px;
   width: 100%;
-  height: auto;
+  height: 100%;
   text-align: center;
 }
 
@@ -577,6 +595,11 @@ header, .header {
   border-radius: 4px;
   padding: 30px;
   font-family: "Source Han Sans";
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  align-items: center; /* 添加这行让子元素水平居中 */
 }
 
 .save-menu-content h2 {
@@ -592,9 +615,12 @@ header, .header {
 #saveSlots {
   display: flex;
   flex-direction: column;
-  max-height: calc(86vh - 180px);
+  flex: 1;
+  min-height: 0; /* 重要：允许内容缩小 */
   overflow-y: auto;
   margin-bottom: 10px;
+  /* 添加边框便于调试 */
+  border: 1px solid rgba(255,0,0,0.3);
 }
 
 /* ================= 单个存档槽 ================= */
@@ -613,12 +639,26 @@ header, .header {
   font-weight: var(--fw-medium);
 }
 
+.save-slot-info {
+  flex: 1; /* 占据剩余空间，将按钮推到右侧 */
+  margin-right: 15px; /* 与按钮保持间距 */
+}
+
+.slot-actions {
+  width: 300px;
+  justify-content: space-between;
+  display: flex;
+  gap: 8px; /* 按钮之间的间距 */
+  flex-shrink: 0; /* 防止按钮被压缩 */
+}
+
 /* ================= 按钮样式 ================= */
 
 .saveSlotsBtn{
   color: var(--color-button-text);
   background: var(--color-button-bg);
   padding: 5px 12px;
+  white-space: nowrap;
 }
 
 #saveMenu .save-slot .slot-actions button,
@@ -631,6 +671,10 @@ header, .header {
   font-size: var(--fz-button);
   cursor: pointer;
   transition: transform 0.12s ease, background 0.12s ease;
+}
+
+#saveMenuBack {
+  width: 100px;
 }
 
 #saveMenu .save-slot .slot-actions button:hover,

@@ -615,6 +615,12 @@ header, .header {
 
 /* ================= 按钮样式 ================= */
 
+.saveSlotsBtn{
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  padding: 5px 12px;
+}
+
 #saveMenu .save-slot .slot-actions button,
 #saveMenu .save-menu-content > button {
   padding: 10px 20px;
@@ -652,7 +658,6 @@ header, .header {
   flex-direction:column;
   background: transparent;
   font-family: 'Source Han Sans';
-
 }
 
 .btn-area {
@@ -662,7 +667,7 @@ header, .header {
   align-items: center;
   border-radius: 0 0 4px 4px;   /* 只保留下圆角 */
   padding: 10px;
-  margin-top: 0; /* 不要间距 */
+  margin-top: -1%; /* 负间距 */
 }
 
 .modal-content {
@@ -807,6 +812,7 @@ header, .header {
   font-size: var(--fz-body);
   font-weight: var(--fw-regular);
   transition: opacity 1s ease;
+  overflow-y: auto;
 }
 
 .dialog-options {

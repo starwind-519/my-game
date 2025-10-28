@@ -60,6 +60,7 @@ const actionsContainer = $('#actionsContainer');
 
 const saveMenu = $('#saveMenu');
 const saveSlots = $('#saveSlots');
+const saveSlotsBtn =$('#saveSlotsBtn');
 
 // ---  序章 / 数值说明 / 教程 ---
 const introModal = $('#introModal');
@@ -1136,11 +1137,11 @@ function renderSaveSlots() {
       // 显示旧存档信息
       const span = document.createElement('span');
       span.className = 'save-slot';
-      span.textContent = `快速存档（旧） • 第 ${data.gameState?.day || '?'} 天 • ${data.timestamp ? new Date(data.timestamp).toLocaleString() : '未知'} `;
+      span.textContent = `快速存档（旧） • 第 ${data.gameState?.day || '?'} 天 •  ${data.timestamp ? new Date(data.timestamp).toLocaleString() : '未知'} `;
 
       //按钮
       const lbtn = document.createElement('button');
-      lbtn.className = 'dialog-btn';
+      lbtn.className = 'saveSlotsBtn';
       lbtn.textContent = '读取';
       lbtn.addEventListener('click', () => {
         if (confirm('读取快速存档将覆盖当前进度，确定？'))
@@ -1149,7 +1150,7 @@ function renderSaveSlots() {
 
       //按钮
       const sbtn = document.createElement('button');
-      sbtn.className = 'dialog-btn';
+      sbtn.className = 'saveSlotsBtn';
       sbtn.textContent = '覆盖保存';
       sbtn.addEventListener('click', () => {
         if (confirm('覆盖快速存档？'))
@@ -1186,7 +1187,7 @@ function renderSaveSlots() {
 
     //按钮
     const lbtn = document.createElement('button');
-    lbtn.className = 'modal-btn';
+    lbtn.className = 'saveSlotsBtn';
     lbtn.textContent = '读取';
     lbtn.addEventListener('click', () => {
       if (!raw) { showNotification('该槽为空'); return; }
@@ -1196,7 +1197,7 @@ function renderSaveSlots() {
 
     //按钮
     const sbtn = document.createElement('button');
-    sbtn.className = 'modal-btn';
+    sbtn.className = 'saveSlotsBtn';
     sbtn.textContent = raw ? '覆盖保存' : '保存到此槽';
     sbtn.addEventListener('click', () => {
       if (raw && !confirm(`存档槽 ${i} 已有存档，覆盖吗？`)) return;
@@ -1205,9 +1206,9 @@ function renderSaveSlots() {
 
     //按钮
     const cbtn = document.createElement('button');
-    cbtn.className = 'modal-btn';
+    cbtn.className = 'saveSlotsBtn';
     cbtn.textContent = '清空';
-    cbtn.style.background = '#7a1b1b';
+    cbtn.style.background = '#701818ff';
     cbtn.addEventListener('click', () => {
       if (!raw) { showNotification('此槽本来就是空的。'); return; }
       if (!confirm(`确定删除 存档槽 ${i} 的内容？此操作无法撤销。`)) return;

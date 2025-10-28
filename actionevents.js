@@ -64,6 +64,47 @@ const actionEvents = {
         }
       ],
       once: true
+    },
+
+    {
+      condition: (count, state) => count === 15,
+      text:
+        "在你发呆的时候，你好像隐隐约约听见什么声音。<br>" +
+        "“——祥——祥——”<br>" +
+        "“怎么又在发呆了？”<br>" +
+        "“……怎么了，睦？”<br>" +
+        "“你看，今晚的月色，很美哦。”<br>"+
+        "你顺着睦的指尖从窗口看上去，发现今晚的天意外的清澈，星星在夜空中闪烁，清澈的月亮在夜空中高高挂起，显得此刻多么安宁。<br>" +
+        "这个场景让你觉得——",
+      choices: [
+        {
+          text: "“好美啊，感觉风也温柔了。”",
+          feedback:
+            "睦看着你，温柔的笑了。<br>" +
+            "“祥喜欢就好。”<br>" +
+            "她这么说，你从她的双眼里看见欣喜，也从中看见同样微笑着的自己。",
+          effect: () => {
+            gameState.mutsumiMood = clamp(gameState.mutsumiMood +5);
+            gameState.sakikoMood = clamp(gameState.sakikoMood +5);
+            gameState.love += 3;
+            updateUI();
+          }
+        },
+        {
+          text: "“月亮出现了，得早点休息。”",
+          feedback:
+            "睦沉默了几秒，然后轻声笑了出来。<br>" +
+            "她说：“是呢，祥得好好休息，这些天幸苦了，晚安。”<br>" +
+            "“晚安。”你不懂睦为什么笑，但你依旧回应了她，并把睦一起拉去休息。",
+          effect: () => {
+            gameState.mutsumiMood = clamp(gameState.mutsumiMood +2);
+            gameState.sakikoMood = clamp(gameState.sakikoMood +2);
+            gameState.love += 1;
+            updateUI();
+          }
+        }
+      ],
+      once: true
     }
   ],
 
@@ -864,7 +905,7 @@ reinforceHouse: [
             {
                 text: "顺从心意，深深吻她",
                 feedback: "你再也没有忍住，把她压在木墙边，深深吻住。<br>" +
-                          "接着你们这样那样，又那样这样。（对不起肝不动了以后更新desuwa）。<br>" +
+                          "你们的唇舌交缠，贪婪的摄取彼此的体温，在末日下分享最后的温暖。<br>" +
                           "她紧紧抱住你，指尖抓住你的衣襟。破败的屋子，成了唯一的世界。",
                 effect: () => {
                     gameState.love += 12;

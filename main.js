@@ -194,7 +194,6 @@ const storyManager = {
     if (!storyText) return;
     storyText.innerHTML += `<br>${text}`;
     storyText.scrollTop = storyText.scrollHeight;
-    storyText.scrollTop = 0; //先看第一排
   },
   appendResponse(text) {
     if (!storyText) return;
@@ -1080,7 +1079,7 @@ function showEnding(ending) {
 // XIII. 存档系统（手动档 + 自动存档）
 // =========================================================
 
-const SAVE_SLOT_COUNT = 13;
+const SAVE_SLOT_COUNT = 14;
 const LEGACY_KEY = 'sakikoMutsumi_save';
 
 function saveToSlot(slotKey) {

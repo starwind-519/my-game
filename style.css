@@ -838,14 +838,13 @@ header, .header {
    6. 插图（action-image）与盲盒（blindBoxModal）
    ========================================================= */
 .action-image { 
-  position:fixed; 
-  top:50%; 
-  left:50%; 
-  transform: translate(-50%,-50%); 
-  opacity:0; 
-  transition: opacity 0.25s ease, 
-  transform 0.25s ease; 
-  z-index:var(--z-blindbox); 
+  position:absolute;
+  top:105px;
+  right: 76px;
+  opacity:0;
+  transition: opacity 0.25s ease-in-out;
+  z-index:var(--z-blindbox);
+  display: block !important;
 }
 .action-image.visible { opacity:1; }
 
@@ -854,7 +853,7 @@ header, .header {
   max-height:250px; 
   width:auto; 
   height:auto; 
-  transition: transform 0.25s ease; 
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 /* gentleShake */

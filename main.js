@@ -543,15 +543,6 @@ function performAction(actionId, variant = null, actionSlot = {}) {
       imgBox.classList.remove('hidden');
       imgBox.classList.add('visible');
 
-      // 摇啊摇，摇到外婆桥
-      imgBox.classList.remove('shake'); // 防止残留
-      const handleShakeEnd = () => {
-        imgBox.classList.remove('shake');
-        imgBox.removeEventListener('animationend', handleShakeEnd);
-      };
-      imgBox.addEventListener('animationend', handleShakeEnd);
-      imgBox.classList.add('shake');
-
       //延迟1秒后隐藏并输出对白
       setTimeout(() => {
         imgBox.classList.remove('visible');

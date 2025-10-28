@@ -619,8 +619,6 @@ header, .header {
   min-height: 0; /* 重要：允许内容缩小 */
   overflow-y: auto;
   margin-bottom: 10px;
-  /* 添加边框便于调试 */
-  border: 1px solid rgba(255,0,0,0.3);
 }
 
 /* ================= 单个存档槽 ================= */

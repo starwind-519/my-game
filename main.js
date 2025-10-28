@@ -1195,7 +1195,7 @@ function renderSaveSlots() {
 
     //按钮
     const lbtn = document.createElement('button');
-    lbtn.className = 'dialog-btn';
+    lbtn.className = 'modal-btn';
     lbtn.textContent = '读取';
     lbtn.addEventListener('click', () => {
       if (!raw) { showNotification('该槽为空'); return; }
@@ -1205,7 +1205,7 @@ function renderSaveSlots() {
 
     //按钮
     const sbtn = document.createElement('button');
-    sbtn.className = 'dialog-btn';
+    sbtn.className = 'modal-btn';
     sbtn.textContent = raw ? '覆盖保存' : '保存到此槽';
     sbtn.addEventListener('click', () => {
       if (raw && !confirm(`存档槽 ${i} 已有存档，覆盖吗？`)) return;
@@ -1214,7 +1214,7 @@ function renderSaveSlots() {
 
     //按钮
     const cbtn = document.createElement('button');
-    cbtn.className = 'dialog-btn';
+    cbtn.className = 'modal-btn';
     cbtn.textContent = '清空';
     cbtn.style.background = '#7a1b1b';
     cbtn.addEventListener('click', () => {

@@ -75,10 +75,9 @@ body {
 .game-frame {
   width: 1000px;
   height: 600px;
-  background: var(--color-bg);
+  background: transparent;
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
 }
@@ -561,16 +560,18 @@ header, .header {
    5. 存档菜单（SaveMenu）
    ========================================================= */
 #saveMenu {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(32,32,32,0.65);
-  z-index: var(--z-modal);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--space-md);
-  box-sizing: border-box;
+  background: var(--color-white);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  padding: 20px 20px;
+  max-height: 520px;
+  max-width: 712px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--border-color);
+  color: var(--color-white);
+  font-family: "Source Han Sans";
+  text-align: center
 }
 .save-menu-content {
   width: 600px;
@@ -650,14 +651,11 @@ header, .header {
   width :100%;
   max-width: 712px;
   min-height: 344px;
-  max-height: 430px;
+  max-height: 530px;
   z-index: var(--z-modal);
   display:flex;
   flex-direction:column;
-  background: var(--color-white);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
+  background: transparent;
   overflow:hidden;
   font-family: 'Source Han SansCN';
   padding-bottom: 10px;
@@ -671,12 +669,18 @@ header, .header {
   flex: 1 1 auto;
   overflow-y: auto; 
   padding:20px;
+  background: var(--color-white);
+  margin: 0;
+  background-color: white;
+  border-radius: 12px 12px 0 0; 
+  margin-bottom: 0; /* 不要间距 */
+ 
 }
 
 .modal-text {
   text-align: left;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: var(--fz-body);
   color: var(--color-text);
 }
@@ -695,20 +699,31 @@ header, .header {
   transition: opacity 1s ease;
 }
 
+.btn-area {
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0 0 12px 12px; /* 只保留下圆角 */
+  padding: 20px;
+  margin-top: 0; /* 不要间距 */
+
+}
+
 .modal-btn {
   display: flex;
   margin: 15px auto 0;
   margin-top: auto;
-  border: none;
-  border-radius: 4px;
   background: var(--color-button-bg);
   color: var(--color-button-text);
   cursor: pointer;
   transition: all var(--ease-normal);
   padding: 10px 70px;
   font-size: var(--fz-medium);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-  margin-top: 10PX;
+  
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .modal-btn:hover {
@@ -746,9 +761,9 @@ header, .header {
   transform: translate(-50%,-50%);
   height: 100%;
   width :100%;
-  max-width: 570px;
+  max-width: 712px;
   min-height: 344px;
-  max-height: 430px;
+  max-height: 530px;
   z-index: var(--z-modal);
   display:flex;
   flex-direction:column;
@@ -787,7 +802,7 @@ header, .header {
 }
 
 .dialog-btn {
-  padding: 5px 10px;
+  padding: 10px 10px;
   border: none;
   border-radius: 10px;
   background: var(--color-button-bg);
@@ -841,15 +856,17 @@ header, .header {
 
 /* ===Blind Box Modal === */
 #blindBoxModal .modal-content {
-  background: var(--color-bg);
-  border: var(--border-width) solid rgba(200,150,255,0.2);
+  background: var(--color-white);
   border-radius: 4px;
   box-shadow: var(--shadow);
-  padding: 24px 28px;
-  max-height: 344px;
+  padding: 35px 30px;
+  max-height: 380px;
   max-width: 570px;
+  margin-left: 10%;
+  margin-top: 10%;
   width: 100%;
   height: 100%;
+  border: 2px solid var(--border-color);
   color: var(--color-white);
   font-family: "Source Han Sans";
   text-align: center
@@ -859,7 +876,7 @@ header, .header {
 #blindBoxTitle {
   font-size: 1.5rem;
   font-weight: var(--fw-bold);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   color: var(--color-text);
   letter-spacing: 2px;
   text-shadow: 0 0 2px var(--color-white);
@@ -873,10 +890,11 @@ header, .header {
   letter-spacing: 2px;
   text-shadow: 0 0 2px var(--color-white);
 }
+
 /* === Image / Hint Area === */
 #blindBoxImageArea {
   min-height: 50px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--color-hover);
   font-style: italic;
 }
@@ -886,9 +904,9 @@ header, .header {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   margin-top: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 /* === Blind Box Item === */
@@ -916,7 +934,7 @@ header, .header {
 
 /* === Result === */
 #blindBoxResult {
-  margin-top: 12px;
+  margin-top: 10px;
   animation: fadeIn 0.6s ease;
 }
 
@@ -934,7 +952,7 @@ header, .header {
 #openBlindBoxBtn {
   background: var(--color-button-bg);
   border-radius: 8px;
-  padding: 6px 18px;
+  padding: 5px 15px;
   color: var(--color-white);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -990,22 +1008,37 @@ header, .header {
 /* saveMenu back-row */
 #saveMenu .save-menu-content .back-row { display:flex; justify-content:center; margin-top:8px; }
 
-/* tutorial controls */
-#nextTutorialBtn, #skipTutorialBtn { padding:8px 12px; border-radius:8px; border:none; cursor:pointer; background:var(--color-button-bg); color:var(--color-button-text); }
-#nextTutorialBtn:hover, #skipTutorialBtn:hover { background:var(--color-accent); }
-
 /* ending modal */
-#endingModal { display:none; position: fixed; inset:0; justify-content:center; align-items:center; z-index:var(--z-modal); background: rgba(32,32,32,0.65); }
-#endingModal .modal-content { max-width:700px; width:90%; }
-#endingTitle { font-size: var(--fz-h2); font-family:var(--font-title); font-weight:var(--fw-bold); }
-#endingText { font-size:var(--fz-body); line-height:1.75; }
 
-/* utility small adjustments */
-.menu-content .menu-buttons { margin-top: 12px; }
-.save-load-buttons { margin-top: auto; }
+#endingModal .modal-content { 
+  font-size: var(--fz-medium);
+  font-weight: var(--fw-light);
+  line-height: normal;
+  letter-spacing: 0%;
+  color: var(--color-text);
+  flex: 1 1 auto;
+  overflow-y: auto; 
+  padding:20px;
+  background: var(--color-white);
+  margin: 0;
+  background-color: white;
+  border-radius: 12px 12px 0 0; 
+  margin-bottom: 0; /* 不要间距 */
+}
+
+#endingTitle { 
+  color: var(--color-text);
+  font-size: var(--fz-h2); 
+  font-family:var(--font-title); 
+  font-weight:var(--fw-bold);
+ }
+#endingText { 
+  font-size:var(--fz-body); 
+  line-height:1.75; 
+}
 
 /* =========================================================
    11. 兼容 / fallback styles
    ========================================================= */
-button, input, textarea { font-family: inherit; -webkit-font-smoothing: antialiased; }
+
 

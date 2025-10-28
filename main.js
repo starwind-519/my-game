@@ -683,7 +683,7 @@ function handleRandomEvent(actionId, onComplete) {
         } else {
           setTimeout(() => { closeModal(blindBoxModal); if (typeof onComplete === 'function') onComplete(); }, 800);
         }
-      }, 3000); // 3秒晃动动画
+      }, 1000); // 3秒晃动动画
     });
   }
 

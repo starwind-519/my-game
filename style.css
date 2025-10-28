@@ -117,7 +117,7 @@ body {
   font-display: swap; /* 优化加载显示 */
 }
 /* =========================================================
-   主菜单（Main Menu）
+   1. 主菜单（Main Menu）
    ========================================================= */
 #mainMenu {
   position: absolute;
@@ -168,7 +168,7 @@ body {
 }
 
 .menu-content h1 {
-  font-family: 'Source Han SansCN';
+  font-family: 'Source Han Sans';
   font-size: var(--fz-h1);
   font-weight: var(--fw-bold);
   background:linear-gradient(180deg, #000000 28%, #ED0000 100%);
@@ -182,7 +182,7 @@ body {
 }
 
 .menu-content p {
-  font-family: 'Source Han SansCN';
+  font-family: 'Source Han Sans';
   font-size: 1.25rem;
   font-weight: var(--fw-bold);
   background: var(--color-bg);
@@ -232,7 +232,7 @@ body {
 }
 
 /* =========================================================
-   1. 游戏主容器（#gameContainer 保留，放在 .game-frame 内）
+   2. 游戏主容器（#gameContainer 保留，放在 .game-frame 内）
    ========================================================= */
 #gameContainer {
   position: relative;
@@ -333,7 +333,7 @@ header, .header {
 }
 
 /* =========================================================
-   左上：状态面 / 数值条（占左侧三分之二）
+   左上：状态面 / 数值条（占左侧三分之二） 2.1
    ========================================================= */
 .stats-panel {
   /* 布局属性 */
@@ -415,7 +415,7 @@ header, .header {
 #loveBar { background: linear-gradient(to right, #ff8c8c, #a32636); }
 
 /* =========================================================
-   左下：存档按钮组（占左侧三分之一）
+   左下：存档按钮组（占左侧三分之一） 2.2
    ========================================================= */
 .save-load-buttons {
   flex: 0 0 29%;
@@ -462,7 +462,7 @@ header, .header {
 }
 
 /* =========================================================
-   右上：故事区（占右侧三分之二）
+   右上：故事区（占右侧三分之二） 2.3
    ========================================================= */
 .story-container {
   height: 344px;
@@ -497,7 +497,7 @@ header, .header {
 }
 
 /* =========================================================
-   右下：动作选项区（占右侧三分之一）
+   右下：动作选项区（占右侧三分之一）2.4
    ========================================================= */
 .actions-container {
   flex: 1;
@@ -555,9 +555,8 @@ header, .header {
   line-height: 1.5;
 }
 
-
 /* =========================================================
-   5. 存档菜单（SaveMenu）
+  3. 存档菜单（SaveMenu） 待定
    ========================================================= */
 #saveMenu {
   background: var(--color-white);
@@ -640,7 +639,7 @@ header, .header {
 }
 
 /* =========================================================
-   6. 模态（modal）与对话（dialog-popup）
+   4. 模态（modal）序章，数值，教程
    ========================================================= */
 .modal {
   position: absolute;
@@ -657,46 +656,8 @@ header, .header {
   flex-direction:column;
   background: transparent;
   overflow:hidden;
-  font-family: 'Source Han SansCN';
+  font-family: 'Source Han Sans';
   padding-bottom: 10px;
-}
-.modal-content {
-  font-size: var(--fz-medium);
-  font-weight: var(--fw-light);
-  line-height: normal;
-  letter-spacing: 0%;
-  color: var(--color-text);
-  flex: 1 1 auto;
-  overflow-y: auto; 
-  padding:20px;
-  background: var(--color-white);
-  margin: 0;
-  background-color: white;
-  border-radius: 12px 12px 0 0; 
-  margin-bottom: 0; /* 不要间距 */
- 
-}
-
-.modal-text {
-  text-align: left;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: var(--fz-body);
-  color: var(--color-text);
-}
-
-.modal h2 {
-  margin: 0 0 5px 0;
-  font-size: 1.5rem;
-  font-weight: var(--fw-bold);
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.modal p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-  transition: opacity 1s ease;
 }
 
 .btn-area {
@@ -704,26 +665,52 @@ header, .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border-radius: 0 0 12px 12px; /* 只保留下圆角 */
+  border-radius: 0 0 4px 4px;   /* 只保留下圆角 */
   padding: 20px;
   margin-top: 0; /* 不要间距 */
+}
 
+.modal-content {
+  color: var(--color-text);
+  text-align: left;
+  flex: 1 1 auto;
+  overflow-y: auto; 
+  padding: 20px;
+  background: var(--color-white);  /* 只保留上圆角 */
+  margin: 0;
+  border-radius: 4px 4px 0 0; 
+  margin-bottom: 0; /* 不要间距 */
+ 
+}
+
+.modal h2 {
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.modal p {
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.75;
+  font-size: var(--fz-body);
+  font-weight: var(--fw-regular);
+  transition: opacity 1s ease;
 }
 
 .modal-btn {
   display: flex;
-  margin: 15px auto 0;
-  margin-top: auto;
   background: var(--color-button-bg);
   color: var(--color-button-text);
   cursor: pointer;
   transition: all var(--ease-normal);
   padding: 10px 70px;
   font-size: var(--fz-medium);
-  
-  margin-top: 20px;
   justify-content: center;
+  margin: 20px;
+  border: var(--color-hover);
+  border-radius: var(--btn-radius);
 }
 
 .modal-btn:hover {
@@ -743,7 +730,7 @@ header, .header {
 .tutorial-step {
   width: 10px;
   height: 10px;
-  border-radius: 20%;
+  border-radius: 4px;
   background: #4c4c4c;
 }
 
@@ -751,65 +738,92 @@ header, .header {
   background: var(--color-text);
 }
 
+/* ending modal */
+
+#endingModal .modal-content { 
+  color: var(--color-text);
+  text-align: left;
+  flex: 1 1 auto;
+  overflow-y: auto; 
+  padding: 20px;
+  background: var(--color-white);  /* 只保留上圆角 */
+  margin: 0;
+  border-radius: 4px 4px 0 0; 
+  margin-bottom: 0; /* 不要间距 */
+}
+
+#endingTitle { 
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  text-align: center;
+  padding-bottom: 20px;
+ }
+
+#endingText { 
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 2.2;
+  font-size: var(--fz-body);
+  font-weight: var(--fw-regular);
+  transition: opacity 1s ease;
+}
+
+
 /* =========================================================
-   7. 对话弹窗（dialog-popup）详细样式
+   5. 对话弹窗（dialog-popup）详细样式
    ========================================================= */
 .dialog-popup {
   position: absolute;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  height: 100%;
+  height: auto;
   width :100%;
   max-width: 712px;
-  min-height: 344px;
   max-height: 530px;
   z-index: var(--z-modal);
   display:flex;
   flex-direction:column;
-  padding:25px;
-  gap: 10px;
   background: var(--color-white);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-  overflow:hidden;
-  font-family: 'Source Han SansCN';
+  font-family: 'Source Han Sans';
+  color: var(--color-text);
+  text-align: left;
+  overflow-y: visible; 
+  padding: 20px; 
+  border-radius: 4px; 
 }
+
 .dialog-popup h2 {
-  margin: 0 0 5px 0;
   font-size: 1.5rem;
   font-weight: var(--fw-bold);
   text-align: center;
+  padding-bottom: 20px;
 }
 
 .dialog-content {
-  font-size: var(--fz-medium);
-  font-weight: var(--fw-light);
-  line-height: normal;
-  letter-spacing: 0%;
-  color: var(--color-text);
-  flex: 1 1 auto;
-  overflow-y: auto;  
+  margin-bottom: 15px;
+  text-align: left;
+  line-height: 1.75;
+  font-size: var(--fz-body);
+  font-weight: var(--fw-regular);
+  transition: opacity 1s ease;
 }
 
 .dialog-options {
-  margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: stretch;
 }
 
 .dialog-btn {
-  padding: 10px 10px;
+  margin-top: 10px;
+  padding: 15px 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   background: var(--color-button-bg);
   color: var(--color-button-text);
   font-size: var(--fz-medium);
   cursor: pointer;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
   transition: transform 0.08s ease, box-shadow 0.12s ease;
 }
@@ -821,7 +835,7 @@ header, .header {
 }
 
 /* =========================================================
-   8. 插图（action-image）与盲盒（blindBoxModal）
+   6. 插图（action-image）与盲盒（blindBoxModal）
    ========================================================= */
 .action-image { 
   position:fixed; 
@@ -860,7 +874,7 @@ header, .header {
   border-radius: 4px;
   box-shadow: var(--shadow);
   padding: 35px 30px;
-  max-height: 380px;
+  max-height: 400px;
   max-width: 570px;
   margin-left: 10%;
   margin-top: 10%;
@@ -944,6 +958,7 @@ header, .header {
   color: var(--color-text);
   margin-bottom: 10px;
   line-height: 1.4;
+  text-align: center;
   text-shadow: 0 0 4px rgba(255,255,255,0.3);
 }
 
@@ -978,7 +993,7 @@ header, .header {
 }
 
 /* =========================================================
-   9. 通知（右下）与遮罩
+   7. 通知（右下）与遮罩
    ========================================================= */
 .notification {
   position: fixed;
@@ -999,46 +1014,19 @@ header, .header {
 }
 .notification.show { transform: translateX(0); opacity: 1; }
 
-.overlay { position: fixed; inset:0; background: rgba(0,0,0,0.0); z-index: var(--z-overlay); }
-
 /* =========================================================
-   10. 小工具 / 其它（确保所有 HTML 中的 class/id 被覆盖）
+   8. 遮掩层
    ========================================================= */
 
-/* saveMenu back-row */
-#saveMenu .save-menu-content .back-row { display:flex; justify-content:center; margin-top:8px; }
+.overlay { 
+  position: fixed; 
+  inset:0; 
+  background: var(--border-color); 
+  z-index: var(--z-overlay); }
 
-/* ending modal */
-
-#endingModal .modal-content { 
-  font-size: var(--fz-medium);
-  font-weight: var(--fw-light);
-  line-height: normal;
-  letter-spacing: 0%;
-  color: var(--color-text);
-  flex: 1 1 auto;
-  overflow-y: auto; 
-  padding:20px;
-  background: var(--color-white);
-  margin: 0;
-  background-color: white;
-  border-radius: 12px 12px 0 0; 
-  margin-bottom: 0; /* 不要间距 */
-}
-
-#endingTitle { 
-  color: var(--color-text);
-  font-size: var(--fz-h2); 
-  font-family:var(--font-title); 
-  font-weight:var(--fw-bold);
- }
-#endingText { 
-  font-size:var(--fz-body); 
-  line-height:1.75; 
-}
 
 /* =========================================================
-   11. 兼容 / fallback styles
+   9. 兼容 / fallback styles
    ========================================================= */
 
 

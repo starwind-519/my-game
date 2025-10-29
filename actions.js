@@ -146,6 +146,7 @@ const actions = {
     doNothing: {
         name: "发呆",
         description: "不消耗体力，不做任何事",
+        image:"image/doNothing.jpg",
         cost: { stamina: 0 },
         responses: [
             "你坐在窗边，阳光从破碎的玻璃缝里落下——尘埃漂浮着，像慢得不真实的时间。",
@@ -253,6 +254,7 @@ const actions = {
         name: "用餐",
         description: "花费20体力，消耗3物资",
         type: "eat",
+        image:"image/eat.jpg",
         responses: {
             breakfast: [
                 "清晨，你把微凉的粥分成两碗递给睦。她接过时手指仍有些发抖，低声说：“有点凉了……不过还好。”",
@@ -312,6 +314,7 @@ const actions = {
         name: "探索（屋内）",
         description: "屋内搜寻物资，花费20体力",
         type: "explore_house",
+        image:"image/explore_house.jpg",
         responses: [
             "你在破旧的厨房里翻找，意外发现几罐未过期的食物。睦轻声说：“今晚不用挨饿了。”",
             "卧室的抽屉半掩着，里面散落着旧照片与几样还能用的杂物。你怔了怔，随后小心地收起。",
@@ -327,6 +330,7 @@ const actions = {
         name: "探索（独自外出）",
         description: "独自外出寻找物资,花费25体力",
         type: "explore_alone",
+        image:"image/explore_alone.jpg",
         responses: [
             "街道寂静得过分，只有风吹过破碎的玻璃声在回应你的脚步。",
             "你独自穿行在废墟，手指不离刀柄。街道空空，只有自己的脚步与呼吸。",
@@ -347,7 +351,7 @@ const actions = {
         name: "探索（与睦一起）",
         description: "和睦外出寻找物资,花费25体力",
         type: "explore_withMutsumi",
-        image:"image/explore.png",
+        image:"image/explore_withMutsumi.png",
         responses: [
             "夜色笼罩废墟，你搀着睦，步伐放得很轻，只怕惊动风里的寂静，迎来丧尸的袭击。",
             "并肩前行让睦的气息稳定了些，她回头冲你露出一个安心的笑。",

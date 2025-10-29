@@ -682,7 +682,7 @@ function handleRandomEvent(actionId, onComplete) {
         } else {
           setTimeout(() => { closeModal(blindBoxModal); if (typeof onComplete === 'function') onComplete(); }, 800);
         }
-      }, 1000); // 3秒晃动动画
+      }, 1000); // 1秒晃动动画
     });
   }
 
@@ -925,7 +925,7 @@ function endDay() {
     gameState.sakikoMood = Math.max(0, gameState.sakikoMood - 2);
     gameState.mutsumiMood = Math.max(0, gameState.mutsumiMood - 2);
     // 显示右下角通知（每日惩罚）
-    showNotification('今天没有使用物资，两人略显疲惫。（物资 -3，双方心情 -2）', 3000);
+    showNotification('今天没有使用物资，两人略显疲惫。（物资 -3，双方心情 -2）', 2000);
     gameState.daysWithoutSupplies = (gameState.daysWithoutSupplies || 0) + 1;
   } else {
     gameState.daysWithoutSupplies = 0;

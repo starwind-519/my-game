@@ -41,7 +41,7 @@ hungerDeath: {
 
 nobleFarewell: {
     id: 2,
-    condition: (s) => s.infection >= 100 && s.mutsumiMood >= 60,
+    condition: (s) => s.infection >= 100 && s.mutsumiMood >= 45,
     title: "BE 02: 体面告别",
     story: [
 
@@ -85,7 +85,7 @@ nobleFarewell: {
 
 painfulChoice: { 
     id: 3,
-    condition: (s) => s.infection >= 100 && s.mutsumiMood < 60,
+    condition: (s) => s.infection >= 100 && s.mutsumiMood < 45,
     title: "BE 03: 痛苦抉择",
     story: [
 
@@ -138,10 +138,10 @@ safehouseCollapse: {
         "午夜。<br>" +
         "门窗在风中颤抖，铁皮发出细微的呻吟。<br>" +
         "外面传来沉重的脚步声，一阵又一阵，伴随着低沉的嘶吼。<br>" +
-        "你和<span class='mutsumi-text'>睦</span>对视，彼此都明白——它们找到了你们，嗅到了猎物的气息。",
+        "你和<span class='mutsumi-text'>睦</span>对视一眼，彼此都明白——它们找到了你们，嗅到了猎物的气息。",
 
-        "第一声撞击像雷鸣般响起。<br>" +
-        "木板裂开，钉子被震飞。<br>" +
+        "超大的撞击像雷鸣般响起。<br>" +
+        "木板顿时裂开，钉子被震飞。<br>" +
         "空气中弥漫着腐臭与尘灰的味道。<br>" +
         "<span class='sakiko-text'>“后门！去堵后门——！”</span><br>" +
         "你冲过去，用力顶住那扇破旧的门。<br>" +
@@ -193,7 +193,7 @@ loversFuture: {
         "那一刻，你就知道，十四天的努力没有白费。",
 
         "夜里，她靠在你肩上，轻声说：<br>" +
-        "<span class='mutsumi-text'>“祥，还记得吗？你说过要带我去看星星。”</span><br>" +
+        "<span class='mutsumi-text'>“祥，还记得吗？你说过要带我去看星星和月亮。”</span><br>" +
         "你点头。<br>" +
         "外面没有星光，只有破碎的天幕与新生的绿芽。<br>" +
         "可那一刻，她的眼睛，藏着一颗金星。",
@@ -357,7 +357,7 @@ loversCrazy: {
 
         "她的指尖冰冷，却仍试图触摸你的脸。<br>" +
         "你反手握住那只手，轻轻放在自己心口。<br>" +
-        "“睦，听到了吗？这还在跳动。<br>" +
+        "“睦，听到了吗？这里还在跳动。<br>" +
         "所以——无论你变成什么，我都不会放开你。”",
 
         "她似乎想拒绝，却最终只是低头，咬住自己的唇。<br>" +
@@ -436,7 +436,7 @@ dependencyEcho: {
 
         "<span class='mutsumi-text'>“祥……”</span><br>" +
         "她轻声唤你，语气轻得像梦。<br>" +
-        "那声音里有怀念，有渴求，也有痛。<br>" +
+        "那声音里有怀念，有渴求，也有痛楚。<br>" +
         "你应了一声，却不知道她是否真的听见。",
 
         "她会在夜里反复呼唤你的名字，<br>" +

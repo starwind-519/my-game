@@ -1069,124 +1069,148 @@ header, .header {
   z-index: var(--z-overlay); }
 
 /* =========================================================
-   9. 响应式设计
+   9. 响应式设计 - 纯等比例缩小
    ========================================================= */
 
-/* =========================================================
-   纯CSS移动端适配 - 不旋转版本
-   ========================================================= */
+/* 手机竖屏：提示旋转屏幕 */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  body::before {
+    content: "请将手机旋转至横屏模式以获得最佳游戏体验";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 20px;
+    z-index: 10000;
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+  
+  .game-frame {
+    transform: scale(0.4) !important;
+    transform-origin: center center !important;
+    opacity: 0.3;
+    pointer-events: none !important;
+  }
+}
 
-/* 基础移动端设置 */
-@media screen and (max-width: 768px) {
+/* 手机横屏：等比例缩小 */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  body::before {
+    display: none !important;
+  }
+  
   body {
     margin: 0;
-    padding: 10px;
+    padding: 0;
     background: #000 !important;
     display: flex !important;
     justify-content: center !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     min-height: 100vh !important;
-    overflow: auto !important;
-    touch-action: manipulation;
+    overflow: hidden !important;
   }
   
   .game-frame {
-    transform: scale(0.45) !important;
-    transform-origin: top center !important;
+    transform: scale(0.55) !important;
+    transform-origin: center center !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
     border: none !important;
-    box-shadow: none !important;
-    margin: 10px auto !important;
-    width: 1000px !important;
-    height: 600px !important;
+    /* 确保点击区域正确 */
+    position: relative;
+    z-index: 1;
   }
   
-  /* 横屏手机：稍微放大一些 */
-  @media (orientation: landscape) {
-    body {
-      align-items: center !important;
-      padding: 5px;
-    }
-    
-    .game-frame {
-      transform: scale(0.6) !important;
-      transform-origin: center center !important;
-    }
+  /* 修复缩放后的点击问题 */
+  #gameContainer {
+    pointer-events: auto !important;
+  }
+  
+  /* 确保所有交互元素可点击 */
+  .menu-btn,
+  .action-btn,
+  .dialog-btn,
+  .modal-btn,
+  .save-load-buttons button,
+  .blind-box,
+  #saveMenuBack,
+  .saveSlotsBtn {
+    pointer-events: auto !important;
+    /* 移除可能影响点击的变换 */
+    transform: none !important;
+  }
+  
+  /* 触摸设备优化 */
+  .action-btn {
+    min-height: 44px !important;
+  }
+  
+  .action-btn:active {
+    background: var(--color-accent) !important;
+    transform: scale(0.95) !important;
   }
 }
 
-/* 小屏手机调整 */
-@media screen and (max-width: 400px) {
-  .game-frame {
-    transform: scale(0.4) !important;
-  }
-  
-  @media (orientation: landscape) {
-    .game-frame {
-      transform: scale(0.5) !important;
-    }
-  }
-}
-
-/* 中等屏幕手机 */
-@media screen and (min-width: 401px) and (max-width: 768px) {
+/* 不同尺寸手机的优化缩放比例 */
+@media screen and (max-width: 640px) and (orientation: landscape) {
   .game-frame {
     transform: scale(0.5) !important;
   }
-  
-  @media (orientation: landscape) {
-    .game-frame {
-      transform: scale(0.65) !important;
-    }
-  }
 }
 
-/* 平板设备 */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (max-width: 568px) and (orientation: landscape) {
   .game-frame {
-    transform: scale(0.8) !important;
-    transform-origin: center center !important;
+    transform: scale(0.45) !important;
+  }
+  
+  /* 超小屏文字优化 */
+  .action-btn .action-label {
+    font-size: 0.8rem !important;
+  }
+  
+  .action-btn .action-desc {
+    font-size: 0.7rem !important;
   }
 }
 
-/* 触摸设备按钮优化 */
+/* 大屏手机横屏 */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .game-frame {
+    transform: scale(0.7) !important;
+  }
+}
+
+/* 改善触摸体验 */
 @media (hover: none) and (pointer: coarse) {
-  .menu-btn,
   .action-btn,
+  .menu-btn,
   .dialog-btn,
   .modal-btn {
     min-height: 44px !important;
   }
   
-  /* 确保缩放后的按钮仍然可点击 */
-  .action-btn {
-    transform: scale(1) !important; /* 防止按钮被过度缩小 */
-  }
-}
-
-/* 防止文本选择和提高性能 */
-@media screen and (max-width: 768px) {
-  * {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+  /* 移除悬停效果，添加点击反馈 */
+  .action-btn:hover,
+  .menu-btn:hover,
+  .dialog-btn:hover,
+  .modal-btn:hover {
+    transform: none !important;
   }
   
-  /* 改善滚动体验 */
-  .stats-panel,
-  .story-container,
-  .modal-content {
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-/* 确保游戏内容可见 */
-@media screen and (max-width: 768px) {
-  #gameContainer {
-    overflow: visible !important;
-  }
-  
-  .main-content {
-    overflow: visible !important;
+  .action-btn:active,
+  .menu-btn:active,
+  .dialog-btn:active,
+  .modal-btn:active {
+    background: var(--color-accent) !important;
+    opacity: 0.9;
   }
 }

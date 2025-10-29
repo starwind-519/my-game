@@ -943,10 +943,31 @@ function endDay() {
   clampValues();
   updateUI();
 
-  //检查是否触发结局
+  // 显示夜晚结算信息
+  storyManager.append("<br><br>--- 第 " + gameState.day + " 天结束 ---");
+  storyManager.append("夜晚降临，祥子和睦都累了...");
+  
+  // 禁用所有行动按钮
+  if (actionsContainer) {
+    actionsContainer.innerHTML = '';
+    const nextDayBtn = document.createElement('button');
+    nextDayBtn.className = 'action-btn';
+    nextDayBtn.innerHTML = `
+      <div class="action-label">进入第 ${gameState.day + 1} 天</div>
+      <div class="action-desc">点击开始新的一天</div>
+    `;
+    nextDayBtn.addEventListener('click', () => {
+      proceedToNextDay();
+    });
+    actionsContainer.appendChild(nextDayBtn);
+  }
+}
+
+function proceedToNextDay() {
+  // 检查是否触发结局
   if (checkEndings()) return;
 
-  //前进至下一日早晨,自动存档
+  // 前进至下一日早晨
   gameState.day = (gameState.day || 1) + 1;
   gameState.time = 'morning';
   autosave();
@@ -959,7 +980,6 @@ function endDay() {
   if (!hadMain) storyManager.show(getMorningStory());
 
   generateActions();
- 
 }
 
 // 保底测试
@@ -1344,5 +1364,3 @@ if (menuBtn) {
     }
   });
 }
-
-

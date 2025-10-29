@@ -1072,70 +1072,79 @@ header, .header {
    9. 响应式设计
    ========================================================= */
 
+/* =========================================================
+   纯CSS移动端适配 - 不旋转版本
+   ========================================================= */
+
 /* 基础移动端设置 */
 @media screen and (max-width: 768px) {
   body {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     background: #000 !important;
     display: flex !important;
     justify-content: center !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     min-height: 100vh !important;
-    overflow: hidden !important;
+    overflow: auto !important;
     touch-action: manipulation;
   }
   
   .game-frame {
-    position: relative !important;
+    transform: scale(0.45) !important;
+    transform-origin: top center !important;
     border: none !important;
     box-shadow: none !important;
-    overflow: visible !important;
+    margin: 10px auto !important;
+    width: 1000px !important;
+    height: 600px !important;
   }
   
-  /* 横屏手机：等比例缩放 */
+  /* 横屏手机：稍微放大一些 */
   @media (orientation: landscape) {
-    .game-frame {
-      transform: scale(0.55) !important;
-      transform-origin: center center !important;
-      width: 1000px !important;
-      height: 600px !important;
+    body {
+      align-items: center !important;
+      padding: 5px;
     }
-  }
-  
-  /* 竖屏手机：旋转90度+缩放 */
-  @media (orientation: portrait) {
+    
     .game-frame {
-      transform: scale(0.4) rotate(90deg) !important;
+      transform: scale(0.6) !important;
       transform-origin: center center !important;
-      width: 1000px !important;
-      height: 600px !important;
-      margin: 20px !important;
     }
   }
 }
 
 /* 小屏手机调整 */
 @media screen and (max-width: 400px) {
+  .game-frame {
+    transform: scale(0.4) !important;
+  }
+  
   @media (orientation: landscape) {
     .game-frame {
       transform: scale(0.5) !important;
     }
   }
+}
+
+/* 中等屏幕手机 */
+@media screen and (min-width: 401px) and (max-width: 768px) {
+  .game-frame {
+    transform: scale(0.5) !important;
+  }
   
-  @media (orientation: portrait) {
+  @media (orientation: landscape) {
     .game-frame {
-      transform: scale(0.35) rotate(90deg) !important;
+      transform: scale(0.65) !important;
     }
   }
 }
 
-/* 超大手机调整 */
+/* 平板设备 */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  @media (orientation: landscape) {
-    .game-frame {
-      transform: scale(0.7) !important;
-    }
+  .game-frame {
+    transform: scale(0.8) !important;
+    transform-origin: center center !important;
   }
 }
 
@@ -1146,16 +1155,38 @@ header, .header {
   .dialog-btn,
   .modal-btn {
     min-height: 44px !important;
-    min-width: 44px !important;
+  }
+  
+  /* 确保缩放后的按钮仍然可点击 */
+  .action-btn {
+    transform: scale(1) !important; /* 防止按钮被过度缩小 */
   }
 }
 
-/* 防止文本选择 */
+/* 防止文本选择和提高性能 */
 @media screen and (max-width: 768px) {
   * {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* 改善滚动体验 */
+  .stats-panel,
+  .story-container,
+  .modal-content {
+    -webkit-overflow-scrolling: touch;
   }
 }
 
+/* 确保游戏内容可见 */
+@media screen and (max-width: 768px) {
+  #gameContainer {
+    overflow: visible !important;
+  }
+  
+  .main-content {
+    overflow: visible !important;
+  }
+}

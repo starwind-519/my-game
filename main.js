@@ -539,6 +539,11 @@ function performAction(actionId, variant = null, actionSlot = {}) {
       const img = imgBox ? imgBox.querySelector('img') : null;
 
       if (img) {
+
+      // 先完全隐藏，再设置新图片
+      imgBox.classList.remove('visible');
+      imgBox.classList.add('hidden');
+
       img.src = actionDef.image;
       imgBox.classList.remove('hidden');
       imgBox.classList.add('visible');

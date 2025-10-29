@@ -820,6 +820,7 @@ function showSpecialEventModal(eventKey, text, options, onClose) {
 
   // 填充内容与选项
   dialogContent.innerHTML = `<div class="dialog-content">${text}</div>`;
+  dialogContent.scrollTop = 0;  // 新增：重置到顶部
   dialogOptions.innerHTML = '';
 
   const opts = Array.isArray(options) && options.length > 0 ? options : [{ text: '继续' }];
@@ -841,10 +842,11 @@ function showSpecialEventModal(eventKey, text, options, onClose) {
     b.addEventListener('click', () => {
       Array.from(dialogOptions.querySelectorAll('button')).forEach(x => x.disabled = true);
 
-      const fb = typeof opt.feedback === 'function' ? opt.feedback(gameState) : opt.feedback;
-      if (fb) {
-        dialogContent.innerHTML = `<div class="dialog-content">${fb}</div>`;
-        dialogOptions.innerHTML = '';
+   const fb = typeof opt.feedback === 'function' ? opt.feedback(gameState) : opt.feedback;
+   if (fb) {
+   dialogContent.innerHTML = `<div class="dialog-content">${fb}</div>`; // 这里没有重置滚动位置
+   dialogContent.scrollTop = 0; // 新增：显示反馈时重置滚动条
+   dialogOptions.innerHTML = '';
 
         const cont = document.createElement('button');
         cont.className = 'dialog-btn';

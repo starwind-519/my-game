@@ -534,27 +534,34 @@ function performAction(actionId, variant = null, actionSlot = {}) {
   updateUI();
 
   // --- 图片展示逻辑，要在显示对白之前啊 ---
-    if (actionDef.image) {
-      const imgBox = document.getElementById('actionImage');
-      const img = imgBox ? imgBox.querySelector('img') : null;
+  if (actionDef.image) {
+    const imgBox = document.getElementById('actionImage');
+    const img = imgBox ? imgBox.querySelector('img') : null;
 
-      if (img) {
-
-      // 先完全隐藏，再设置新图片
+    if (img) {
+      // 第一步：开始隐藏过渡
       imgBox.classList.remove('visible');
       imgBox.classList.add('hidden');
 
-      img.src = actionDef.image;
-      imgBox.classList.remove('hidden');
-      imgBox.classList.add('visible');
-
-      //延迟1秒后隐藏并输出对白
+      // 等待过渡完成后再设置新图片并显示
       setTimeout(() => {
-        imgBox.classList.remove('visible');
-        setTimeout(() => imgBox.classList.add('hidden'), 500);
-        showActionResponse(responses);
-        continueActionFlow(actionId, variant, actionSlot);
-      }, 1000);
+        // 第二步：设置新图片源
+        img.src = actionDef.image;
+        
+        // 第三步：开始显示过渡
+        imgBox.classList.remove('hidden');
+        imgBox.classList.add('visible');
+
+        // 延迟1秒后隐藏并输出对白
+        setTimeout(() => {
+          imgBox.classList.remove('visible');
+          setTimeout(() => {
+            imgBox.classList.add('hidden');
+            showActionResponse(responses);
+            continueActionFlow(actionId, variant, actionSlot);
+          }, 500); // 等待隐藏过渡完成
+        }, 1000);
+      }, 300); // 等待隐藏过渡完成（与CSS中的过渡时间一致）
     } else {
       // 没有图片容器，直接输出对白并继续流程
       showActionResponse(responses);

@@ -888,11 +888,19 @@ header, .header {
   top:105px;
   right: 76px;
   opacity:0;
-  transition: opacity 0.25s ease-in-out;
+  visibility: hidden; /* 新增：确保隐藏时不可交互 */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s; /* 同步过渡时间 */
   z-index:var(--z-blindbox);
   display: block !important;
 }
-.action-image.visible { opacity:1; }
+.action-image.visible { 
+  opacity:1; 
+  visibility: visible; /* 新增 */
+}
+.action-image.hidden { 
+  opacity:0; 
+  visibility: hidden; /* 新增 */
+}
 
 .action-image img { 
   max-width: 400px; 

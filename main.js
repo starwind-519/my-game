@@ -543,32 +543,58 @@ function performAction(actionId, variant = null, actionSlot = {}) {
       imgBox.classList.remove('visible');
       imgBox.classList.add('hidden');
 
-      // 等待过渡完成后再设置新图片并显示
-      setTimeout(() => {
-        // 第二步：设置新图片源
-        img.src = actionDef.image;
-        
-        // 第三步：开始显示过渡
-        imgBox.classList.remove('hidden');
-        imgBox.classList.add('visible');
-
-        // 延迟1秒后隐藏并输出对白
+      // 预加载新图片
+      const newImage = new Image();
+      newImage.onload = () => {
+        // 图片加载完成后，等待过渡完成再显示
         setTimeout(() => {
-          imgBox.classList.remove('visible');
+          // 第二步：设置已加载的图片源
+          img.src = actionDef.image;
+          
+          // 第三步：开始显示过渡
+          imgBox.classList.remove('hidden');
+          imgBox.classList.add('visible');
+
+          // 延迟1秒后隐藏并输出对白
           setTimeout(() => {
-            imgBox.classList.add('hidden');
-            showActionResponse(responses);
-            continueActionFlow(actionId, variant, actionSlot);
-          }, 500); // 等待隐藏过渡完成
-        }, 1000);
-      }, 300); // 等待隐藏过渡完成（与CSS中的过渡时间一致）
+            imgBox.classList.remove('visible');
+            setTimeout(() => {
+              imgBox.classList.add('hidden');
+              showActionResponse(responses);
+              continueActionFlow(actionId, variant, actionSlot);
+            }, 500);
+          }, 1000);
+        }, 300);
+      };
+      
+      // 开始加载图片
+      newImage.src = actionDef.image;
+      
+      // 设置加载超时保护（5秒）
+      setTimeout(() => {
+        if (!newImage.complete) {
+          console.warn('图片加载超时，强制继续流程');
+          // 即使图片没加载完也继续流程
+          img.src = actionDef.image;
+          imgBox.classList.remove('hidden');
+          imgBox.classList.add('visible');
+          
+          setTimeout(() => {
+            imgBox.classList.remove('visible');
+            setTimeout(() => {
+              imgBox.classList.add('hidden');
+              showActionResponse(responses);
+              continueActionFlow(actionId, variant, actionSlot);
+            }, 500);
+          }, 1000);
+        }
+      }, 5000);
+      
     } else {
-      // 没有图片容器，直接输出对白并继续流程
       showActionResponse(responses);
       continueActionFlow(actionId, variant, actionSlot);
     }
   } else {
-    // 没图片就直接输出对白并继续
     showActionResponse(responses);
     continueActionFlow(actionId, variant, actionSlot);
   }

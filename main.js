@@ -539,7 +539,10 @@ function performAction(actionId, variant = null, actionSlot = {}) {
     const img = imgBox ? imgBox.querySelector('img') : null;
 
     if (img) {
-      // 第一步：开始隐藏过渡
+      // 第一步：立即清除旧图片！！！（只添加这一行）
+      img.src = '';
+      
+      // 开始隐藏过渡
       imgBox.classList.remove('visible');
       imgBox.classList.add('hidden');
 
